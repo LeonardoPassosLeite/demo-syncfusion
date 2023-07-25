@@ -1,13 +1,22 @@
 <h1 class="top">
-  Syncfusion Angular UI Grid!
+  Tabela Syncfusion
 </h1>
 
 <ejs-grid [dataSource]='data' [allowPaging]='true' [pageSettings]="pageSettings" [allowFiltering]='true' [filterSettings]="filterSettings"
 [editSettings]='editOptions' [toolbar]='toolbarItems' [allowSorting]='true'>
   <e-columns>
-    <e-column field='OrderID' headerText='Order ID' textAlign='Right' width=90></e-column>
-    <e-column field='CustomerID' headerText='Customer ID' width=120></e-column>
-    <e-column field='Freight' headerText='Freight' textAlign='Right' format='C2' width=90></e-column>
-    <e-column field='OrderDate' headerText='Order Date' textAlign='Right' format='yMd' width=120></e-column>
+    <e-column field='Status' headerText='Status' textAlign='center' width="100"></e-column>
+    <e-column field='Documento' headerText='Documento' width="100"></e-column>
+    <e-column field='Rev' headerText='Rev' textAlign='center' width="70"></e-column>
+    <e-column field='Documento Vinculado' headerText='Documento Vinculado' textAlign='center' width="140"></e-column>
+    <e-column field='Agentes Vinculados' headerText='Agentes Vinculados' textAlign='center' width="140"></e-column>
+    <e-column field='Responsável' headerText='Responsável' width="105"></e-column>
+    <e-column field='Concessão' headerText='Concessão' textAlign='center' width="100"></e-column>
+    <e-column field='GM' headerText='GM' textAlign='center' width="70"></e-column>
+    <e-column field='Subestação' headerText='Subestação' textAlign='center' width="100"></e-column>
+    <e-column field='Início' headerText='Início' width="80" format='yMd'></e-column>
+    <e-column field='Termino' headerText='Termino' textAlign='center' width="90" format='yMd'></e-column>
+    <e-column field='Resumo' headerText='Resumo' textAlign='center' width="100"></e-column>
+    <e-column field='Comentários' headerText='Comentários' textAlign='center' width="105"></e-column>
   </e-columns>
 </ejs-grid>
