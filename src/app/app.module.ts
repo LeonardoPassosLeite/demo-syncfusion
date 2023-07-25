@@ -3,6 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { GridModule, PagerModule, GridAllModule } from '@syncfusion/ej2-angular-grids';
+import { ToolbarModule } from '@syncfusion/ej2-angular-navigations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { DialogModule } from '@syncfusion/ej2-angular-popups';
+import { NumericTextBoxAllModule, RatingAllModule } from '@syncfusion/ej2-angular-inputs';
+import { CheckBoxModule } from '@syncfusion/ej2-angular-buttons';
+import { DropDownListAllModule } from '@syncfusion/ej2-angular-dropdowns';
+import { DatePickerAllModule } from '@syncfusion/ej2-angular-calendars';
 
 @NgModule({
   declarations: [
@@ -10,9 +19,23 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    GridModule,
+    PagerModule,
+    ToolbarModule,
+    FormsModule,
+    ReactiveFormsModule,
+    GridAllModule,
+    CommonModule,
+    DialogModule,
+    NumericTextBoxAllModule,
+    RatingAllModule,
+    CheckBoxModule,
+    DropDownListAllModule,
+    DatePickerAllModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
