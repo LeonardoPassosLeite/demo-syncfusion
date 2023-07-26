@@ -8,6 +8,7 @@ import {
   EditSettingsModel,
   QueryCellInfoEventArgs
 } from '@syncfusion/ej2-angular-grids';
+import '../assets/translation';
 
 @Component({
   selector: 'app-root',
@@ -18,8 +19,6 @@ import {
 
 export class AppComponent implements OnInit{
   title = 'demo-components-syncfusion';
-
-  public drop: string[] = ['Badminton', 'Basketball', 'Cricket', 'Football', 'Golf', 'Hockey', 'Rugby', 'Snooker','Tennis'];
 
   public data: Object[] = [
     {
@@ -68,6 +67,7 @@ export class AppComponent implements OnInit{
       Comentários: 1
     }
   ];
+
   public pageSettings!: Object;
   public filterSettings!: Object;
   public toolbarItems!: ToolbarItems[];
@@ -89,7 +89,6 @@ export class AppComponent implements OnInit{
       }
     }
   }
-
 
   ngOnInit(): void {
     this.pageSettings = { pageCount: 5 };
