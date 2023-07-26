@@ -10,8 +10,8 @@ import { CommonModule } from '@angular/common';
 import { DialogModule } from '@syncfusion/ej2-angular-popups';
 import { NumericTextBoxAllModule, RatingAllModule } from '@syncfusion/ej2-angular-inputs';
 import { CheckBoxModule } from '@syncfusion/ej2-angular-buttons';
-import { DropDownListAllModule } from '@syncfusion/ej2-angular-dropdowns';
 import { DatePickerAllModule } from '@syncfusion/ej2-angular-calendars';
+import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
 
 @NgModule({
   declarations: [
@@ -31,8 +31,8 @@ import { DatePickerAllModule } from '@syncfusion/ej2-angular-calendars';
     NumericTextBoxAllModule,
     RatingAllModule,
     CheckBoxModule,
-    DropDownListAllModule,
-    DatePickerAllModule
+    DatePickerAllModule,
+    DropDownListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

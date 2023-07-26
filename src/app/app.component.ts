@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FilterService, EditService, SortService, ToolbarService, ToolbarItems, EditSettingsModel } from '@syncfusion/ej2-angular-grids';
+import {
+  FilterService,
+  EditService,
+  SortService,
+  ToolbarService,
+  ToolbarItems,
+  EditSettingsModel,
+  QueryCellInfoEventArgs
+} from '@syncfusion/ej2-angular-grids';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +18,8 @@ import { FilterService, EditService, SortService, ToolbarService, ToolbarItems, 
 
 export class AppComponent implements OnInit{
   title = 'demo-components-syncfusion';
+
+  public drop: string[] = ['Badminton', 'Basketball', 'Cricket', 'Football', 'Golf', 'Hockey', 'Rugby', 'Snooker','Tennis'];
 
   public data: Object[] = [
     {
@@ -28,7 +38,7 @@ export class AppComponent implements OnInit{
       Comentários: 1
     },
     {
-      Status: 'Elaboração',
+      Status: 'Aprovação',
       Documento: 'AI-TAESA-659-845',
       Rev: 1,
       "Documento Vinculado": 'NPC 26943',
@@ -43,7 +53,7 @@ export class AppComponent implements OnInit{
       Comentários: 1
     },
     {
-      Status: 'Elaboração',
+      Status: 'Agendada',
       Documento: 'AI-TAESA-659-845',
       Rev: 1,
       "Documento Vinculado": 'NPC 26943',
@@ -64,21 +74,21 @@ export class AppComponent implements OnInit{
   public editOptions!: EditSettingsModel;
   public orderidrules!: Object;
 
-  public iconStatus() {
-/*     setTimeout(() => {
-      let erowcell = document.querySelectorAll('.e-rowcell');
+  public customization(args: QueryCellInfoEventArgs) {
+    if (args.column && args.data && args.cell && args.column.field === 'Status') {
+      const status = (args.data as any)['Status'];
+      console.log(status)
+      console.log(args.cell)
 
-      for (let i = 0; i < erowcell.length; i++) {
-        var status = erowcell[i].innerHTML;
-        if (status == 'Elaboração'){
-          erowcell[i].className = erowcell[i].className.replace('e-rowcell', 'e-rowcell pi pi-check');
-        }
+      if (status === 'Elaboração') {
+        args.cell.classList.add('elaboracao');
+      } else if (status === 'Aprovação') {
+        args.cell.classList.add('aprovacao');
+      } else if (status === 'Agendada') {
+        args.cell.classList.add('agendada');
       }
-
-      console.log(erowcell);
-    }, 500); */
+    }
   }
-
 
 
   ngOnInit(): void {
@@ -94,8 +104,6 @@ export class AppComponent implements OnInit{
         ];
         this.editOptions = { allowEditing: true, allowAdding: true, allowDeleting: true, mode: 'Normal' };
         this.orderidrules = { required: true };
-
-    this.iconStatus();
   }
 
 }

@@ -1,22 +1,48 @@
-<h1 class="top">
+<h1>
   Tabela Syncfusion
 </h1>
 
 <ejs-grid [dataSource]='data' [allowPaging]='true' [pageSettings]="pageSettings" [allowFiltering]='true' [filterSettings]="filterSettings"
-[editSettings]='editOptions' [toolbar]='toolbarItems' [allowSorting]='true' gridLines='Both'>
+[editSettings]='editOptions' [toolbar]='toolbarItems' [allowSorting]='true' (queryCellInfo)="customization($event)" gridLines='Both'>
   <e-columns>
-    <e-column field='Status' headerText='Status' textAlign='center' width="100"></e-column>
-    <e-column field='Documento' headerText='Documento' width="110"></e-column>
+    <e-column field='Status' headerText='Status' textAlign='center' width="100">
+      <ng-template #template let-data>
+        <div class="status">
+          <i [ngClass]="{
+          'pi': true,
+          'pi-check': data.Status === 'Elaboração',
+          'pi-circle': data.Status === 'Aprovação',
+          'pi-cloud': data.Status === 'Agendada'
+          }"></i>
+          {{data.Status}}
+        </div>
+      </ng-template>
+    </e-column>
+    <e-column field='Documento' headerText='Documento' width="110" textAlign="center"></e-column>
     <e-column field='Rev' headerText='Rev' textAlign='center' width="70"></e-column>
-    <e-column field='Documento Vinculado' headerText='Documento Vinculado' textAlign='center' width="140"></e-column>
-    <e-column field='Agentes Vinculados' headerText='Agentes Vinculados' textAlign='center' width="135"></e-column>
-    <e-column field='Responsável' headerText='Responsável' width="105"></e-column>
+    <e-column field='Documento Vinculado' headerText='Documento Vinculado' [headerTemplate]='headerTemplateDocumentos' textAlign='center' width="90"></e-column>
+    <e-column field='Agentes Vinculados' headerText='Agentes Vinculados' [headerTemplate]='headerTemplateAgentes' textAlign='center' width="90"></e-column>
+    <e-column field='Responsável' headerText='Responsável' width="105" textAlign="center"></e-column>
     <e-column field='Concessão' headerText='Concessão' textAlign='center' width="100"></e-column>
     <e-column field='GM' headerText='GM' textAlign='center' width="70"></e-column>
     <e-column field='Subestação' headerText='Subestação' textAlign='center' width="100"></e-column>
-    <e-column field='Início' headerText='Início' width="80" format='yMd'></e-column>
+    <e-column field='Início' headerText='Início' width="80" format='yMd' textAlign="center"></e-column>
     <e-column field='Termino' headerText='Termino' textAlign='center' width="90" format='yMd'></e-column>
     <e-column field='Resumo' headerText='Resumo' textAlign='center' width="100"></e-column>
     <e-column field='Comentários' headerText='Comentários' textAlign='center' width="105"></e-column>
   </e-columns>
 </ejs-grid>
+
+<ng-template #headerTemplateDocumentos>
+  <div class="quebra-linha">
+    <div>Documento</div>
+    <div>Vinculado</div>
+  </div>
+</ng-template>
+
+<ng-template #headerTemplateAgentes>
+  <div class="quebra-linha">
+    <div>Agentes</div>
+    <div>Vinculados</div>
+  </div>
+</ng-template>
