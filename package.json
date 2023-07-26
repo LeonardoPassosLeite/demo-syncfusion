@@ -27,6 +27,7 @@
     "@syncfusion/ej2-angular-navigations": "^22.1.39",
     "@syncfusion/ej2-angular-popups": "^22.1.38",
     "@syncfusion/ej2-material-theme": "~22.1.39",
+    "primeicons": "^6.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

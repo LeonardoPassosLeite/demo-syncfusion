@@ -64,9 +64,28 @@ export class AppComponent implements OnInit{
   public editOptions!: EditSettingsModel;
   public orderidrules!: Object;
 
+  public iconStatus() {
+/*     setTimeout(() => {
+      let erowcell = document.querySelectorAll('.e-rowcell');
+
+      for (let i = 0; i < erowcell.length; i++) {
+        var status = erowcell[i].innerHTML;
+        if (status == 'Elaboração'){
+          erowcell[i].className = erowcell[i].className.replace('e-rowcell', 'e-rowcell pi pi-check');
+        }
+      }
+
+      console.log(erowcell);
+    }, 500); */
+  }
+
+
+
   ngOnInit(): void {
     this.pageSettings = { pageCount: 5 };
-        this.filterSettings = { type: 'Menu' };
+        this.filterSettings = {
+          type: 'Menu'
+        };
         this.toolbarItems = [
           'Edit',
           'Delete',
@@ -75,6 +94,8 @@ export class AppComponent implements OnInit{
         ];
         this.editOptions = { allowEditing: true, allowAdding: true, allowDeleting: true, mode: 'Normal' };
         this.orderidrules = { required: true };
+
+    this.iconStatus();
   }
 
 }

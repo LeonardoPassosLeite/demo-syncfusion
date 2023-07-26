@@ -3,13 +3,13 @@
 </h1>
 
 <ejs-grid [dataSource]='data' [allowPaging]='true' [pageSettings]="pageSettings" [allowFiltering]='true' [filterSettings]="filterSettings"
-[editSettings]='editOptions' [toolbar]='toolbarItems' [allowSorting]='true'>
+[editSettings]='editOptions' [toolbar]='toolbarItems' [allowSorting]='true' gridLines='Both'>
   <e-columns>
     <e-column field='Status' headerText='Status' textAlign='center' width="100"></e-column>
-    <e-column field='Documento' headerText='Documento' width="100"></e-column>
+    <e-column field='Documento' headerText='Documento' width="110"></e-column>
     <e-column field='Rev' headerText='Rev' textAlign='center' width="70"></e-column>
     <e-column field='Documento Vinculado' headerText='Documento Vinculado' textAlign='center' width="140"></e-column>
-    <e-column field='Agentes Vinculados' headerText='Agentes Vinculados' textAlign='center' width="140"></e-column>
+    <e-column field='Agentes Vinculados' headerText='Agentes Vinculados' textAlign='center' width="135"></e-column>
     <e-column field='Responsável' headerText='Responsável' width="105"></e-column>
     <e-column field='Concessão' headerText='Concessão' textAlign='center' width="100"></e-column>
     <e-column field='GM' headerText='GM' textAlign='center' width="70"></e-column>

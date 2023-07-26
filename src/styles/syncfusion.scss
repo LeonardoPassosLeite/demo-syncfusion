@@ -1,0 +1,52 @@
+.e-rowcell{
+  color: #666666 !important;
+  white-space: break-spaces !important;
+
+  &:nth-child(1){
+    background-color: #F7E5FF !important;
+    font-weight: bolder;
+  }
+
+  &:nth-child(2){
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+}
+
+.e-headercell{
+  background-color: #F8F8F8 !important;
+  color: #7082A4 !important;
+  font-weight: bolder;
+}
+
+.e-currentitem {
+  background-color: #0078d7 !important;
+}
+
+.e-toolbar{
+  background-color: #DBE0E5 !important;
+  padding: 10px;
+}
+
+.e-grid .e-gridpager .e-currentitem {
+  background-color: #05286A !important;
+}
+
+.e-grid .e-gridpager .e-numericitem, .e-grid .e-gridpager .e-numericitem:hover {
+  border-radius: initial;
+}
+
+.e-toolbar-items{
+  border-radius: 5px !important;
+  margin-left: 10px;
+  background-color: #fff !important;
+}
+
+.e-tbar-btn{
+  background-color: #fff !important;
+}
+
+.e-tbar-btn-text, .e-edit, .e-delete, .e-update, .e-cancel{
+  color: #7082A4 !important;
+}
