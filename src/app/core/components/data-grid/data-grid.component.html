@@ -1,0 +1,29 @@
+<div class="control-section">
+    <ejs-grid #overviewgrid id='overviewgrid' [dataSource]='data' [query]='query' rowHeight='38' [allowSelection]='true'
+        [allowSorting]='true' [loadingIndicator]='loadingIndicator' height='400' (dataBound)='onDataBound($event)'
+        [enableHover]='false' [enableHeaderFocus]='true' [selectionSettings]='selectionSettings'
+        [filterSettings]='filterSettings' [allowSorting]='true' [allowFiltering]='true' [enableVirtualization]='true'>
+        <e-columns>
+            <e-column field='Status' headerText='Status' width='150'>
+                <ng-template #template let-data>
+                    <div *ngIf="data.Status === 'Active';else login" class="statustemp e-activecolor">
+                        <span class="statustxt e-activecolor">{{data.Status}}</span>
+                    </div>
+                    <ng-template #login>
+                        <div class="statustemp e-inactivecolor">
+                            <span class="statustxt e-inactivecolor">{{data.Status}}</span>
+                        </div>
+                    </ng-template>
+                </ng-template>
+            </e-column>
+            <e-column field='EmployeeID' [visible]='false' headerText='Employee ID' width='130'
+                [isPrimaryKey]='true'></e-column>
+            <e-column field='Documento' headerText='Documento' clipMode='EllipsisWithTooltip' width='200'>
+            </e-column>
+            <e-column field='CurrentSalary' headerText='Current Salary' [filter]='filterSettings' format='C2'
+                width='160'></e-column>
+            <e-column field='Address' headerText='Address' [filter]='filterSettings' clipMode='EllipsisWithTooltip'
+                width='240'></e-column>
+        </e-columns>
+    </ejs-grid>
+</div>

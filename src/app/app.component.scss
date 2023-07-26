@@ -1,0 +1,54 @@
+.control-section {
+    margin-top: 50px;
+}
+
+.e-grid .e-headercell {
+    height: 67px;
+    line-height: 50px;
+    border-right: 1px solid #DFDFDF;
+    background-color: #F8F8F8;
+    color: #7082A4;
+    text-align: center;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.e-grid .e-headercell:last-child {
+    border-right: none;
+}
+
+.e-headercell>div {
+    white-space: normal !important;
+    height: auto !important;
+}
+
+.e-grid .e-rowcell {
+    border-right: 1px solid #ddd;
+    text-align: center;
+    white-space: normal;
+    word-wrap: break-word;
+    height: auto;
+    color: gray;
+}
+
+.break-word {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.elaboracao {
+    background-color: #FEFFD0;
+}
+
+.aprovacao {
+    background-color: #F7E5FF;
+}
+
+.agendada {
+    background-color: #D0F7FF;
+}
+
+.quebra-linha {
+    white-space: normal;
+    line-height: 1.2;
+}
