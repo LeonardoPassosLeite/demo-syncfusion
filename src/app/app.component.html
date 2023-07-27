@@ -9,10 +9,9 @@
       <ng-template #template let-data>
         <div class="status">
           <i [ngClass]="{
-          'pi': true,
-          'pi-check': data.Status === 'Elaboração',
-          'pi-circle': data.Status === 'Aprovação',
-          'pi-cloud': data.Status === 'Agendada'
+          'icon-edit': data.Status === 'Elaboração',
+          'icon-check': data.Status === 'Aprovação',
+          'pi pi-calendar': data.Status === 'Agendada'
           }"></i>
           {{data.Status}}
         </div>
@@ -33,7 +32,7 @@
       <ng-template #template let-data>
         <div class="comentarios">
           <div>
-            <i class="pi pi-comment"></i>
+            <i class="icon-comment"></i>
             {{data.Comentarios}}
           </div>
         </div>

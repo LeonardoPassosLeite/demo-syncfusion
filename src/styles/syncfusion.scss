@@ -49,3 +49,29 @@
 .e-tbar-btn-text, .e-edit, .e-delete, .e-update, .e-cancel{
   color: #7082A4 !important;
 }
+
+.e-toolbar-item .e-btn .e-icons.e-cancel:before {
+  content: "\e901" !important;
+  font-family: "icomoon";
+}
+
+.e-toolbar-item .e-btn .e-icons.e-edit:before {
+  content: "\e942" !important;
+  font-family: "primeicons";
+}
+
+.e-toolbar-item .e-btn .e-icons.e-delete:before {
+  content: "\e93d" !important;
+  font-family: "primeicons";
+}
+
+.e-toolbar-item .e-btn .e-icons.e-update:before {
+  content: "\e95b" !important;
+  font-family: "primeicons";
+}
+
+.e-filtermenudiv.e-icons.e-icon-filter:before {
+  content: "\e94c" !important;
+  font-family: "primeicons";
+  font-size: 12px;
+}
