@@ -15,6 +15,8 @@ L10n.load({
       'Delete': 'Deletar',
       'Update': 'Atualizar',
       'Cancel': 'Cancelar',
+      'EditOperationAlert': 'Nenhum registro selecionado para operação de edição',
+      'DeleteOperationAlert': 'Nenhuma registro selecionado para operação de exclusão',
     },
     'pager':{
       'currentPageInfo': '{0} de {1} páginas',
