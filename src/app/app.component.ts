@@ -34,7 +34,7 @@ export class AppComponent implements OnInit{
       Início: new Date(8364186e5),
       Termino: new Date(8364186e5),
       Resumo: 'Obra em execução',
-      Comentários: 1
+      Comentarios: 1
     },
     {
       Status: 'Aprovação',
@@ -49,7 +49,7 @@ export class AppComponent implements OnInit{
       Início: new Date(8364186e5),
       Termino: new Date(8364186e5),
       Resumo: 'Obra em execução',
-      Comentários: 1
+      Comentarios: 1
     },
     {
       Status: 'Agendada',
@@ -64,7 +64,7 @@ export class AppComponent implements OnInit{
       Início: new Date(8364186e5),
       Termino: new Date(8364186e5),
       Resumo: 'Obra em execução',
-      Comentários: 1
+      Comentarios: 1
     }
   ];
 

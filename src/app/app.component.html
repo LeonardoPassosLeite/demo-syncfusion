@@ -29,7 +29,16 @@
     <e-column field='Início' headerText='Início' width="80" format='yMd' textAlign="center"></e-column>
     <e-column field='Termino' headerText='Termino' textAlign='center' width="90" format='yMd'></e-column>
     <e-column field='Resumo' headerText='Resumo' textAlign='center' width="100"></e-column>
-    <e-column field='Comentários' headerText='Comentários' textAlign='center' width="105"></e-column>
+    <e-column field='Comentarios' headerText='Comentários' textAlign='center' width="105" [allowEditing]='false'>
+      <ng-template #template let-data>
+        <div class="comentarios">
+          <div>
+            <i class="pi pi-comment"></i>
+            {{data.Comentarios}}
+          </div>
+        </div>
+      </ng-template>
+    </e-column>
   </e-columns>
 </ejs-grid>
 
