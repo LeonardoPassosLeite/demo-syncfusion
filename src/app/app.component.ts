@@ -6,7 +6,9 @@ import {
   ToolbarService,
   ToolbarItems,
   EditSettingsModel,
-  QueryCellInfoEventArgs
+  QueryCellInfoEventArgs,
+  PageSettingsModel,
+  FilterSettingsModel
 } from '@syncfusion/ej2-angular-grids';
 import '../assets/translation';
 
@@ -31,8 +33,8 @@ export class AppComponent implements OnInit{
       Concessão: 'Janaúba',
       GM: 'ATE',
       Subestação: 'Aymorés',
-      Início: new Date(8364186e5),
-      Termino: new Date(8364186e5),
+      Início: new Date(4234234e5),
+      Termino: new Date(5454554e5),
       Resumo: 'Obra em execução',
       Comentarios: 1
     },
@@ -46,8 +48,8 @@ export class AppComponent implements OnInit{
       Concessão: 'Janaúba',
       GM: 'ATE',
       Subestação: 'Aymorés',
-      Início: new Date(8364186e5),
-      Termino: new Date(8364186e5),
+      Início: new Date(545455e5),
+      Termino: new Date(55555e5),
       Resumo: 'Obra em execução',
       Comentarios: 1
     },
@@ -65,11 +67,11 @@ export class AppComponent implements OnInit{
       Termino: new Date(8364186e5),
       Resumo: 'Obra em execução',
       Comentarios: 1
-    }
+    },
   ];
 
-  public pageSettings!: Object;
-  public filterSettings!: Object;
+  public pageSettings!: PageSettingsModel;
+  public filterSettings!: FilterSettingsModel;
   public toolbarItems!: ToolbarItems[];
   public editOptions!: EditSettingsModel;
   public orderidrules!: Object;
@@ -91,9 +93,34 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.pageSettings = { pageCount: 5 };
+    this.pageSettings = { pageCount: 15 };
         this.filterSettings = {
-          type: 'Menu'
+          type: 'Menu',
+          operators: {
+            stringOperator: [
+              { value: 'startsWith', text: 'Começa com' },
+              { value: 'endsWith', text: 'Termina com' },
+              { value: 'contains', text: 'Contém' },
+              { value: 'equal', text: 'Igual' },
+              { value: 'notEqual', text: 'Não igual' }
+            ],
+            numberOperator: [
+              { value: 'equal', text: 'Igual' },
+              { value: 'greaterThan', text: 'Maior que' },
+              { value: 'greaterThanOrEqual', text: 'Maior ou igual a' },
+              { value: 'lessThan', text: 'Menor que' },
+              { value: 'lessThanOrEqual', text: 'Menor ou igual a' },
+              { value: 'notEqual', text: 'Não igual' }
+            ],
+            dateOperator: [
+              { value: 'equal', text: 'Igual' },
+              { value: 'greaterThan', text: 'Maior que' },
+              { value: 'greaterThanOrEqual', text: 'Maior ou igual a' },
+              { value: 'lessThan', text: 'Menor que' },
+              { value: 'lessThanOrEqual', text: 'Menor ou igual a' },
+              { value: 'notEqual', text: 'Não igual' },
+            ],
+          }
         };
         this.toolbarItems = [
           'Edit',

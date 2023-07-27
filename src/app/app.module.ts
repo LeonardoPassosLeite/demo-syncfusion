@@ -7,10 +7,7 @@ import { GridModule, PagerModule, GridAllModule } from '@syncfusion/ej2-angular-
 import { ToolbarModule } from '@syncfusion/ej2-angular-navigations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { DialogModule } from '@syncfusion/ej2-angular-popups';
-import { NumericTextBoxAllModule, RatingAllModule } from '@syncfusion/ej2-angular-inputs';
-import { CheckBoxModule } from '@syncfusion/ej2-angular-buttons';
-import { DatePickerAllModule } from '@syncfusion/ej2-angular-calendars';
+import {DatePickerModule, DateRangePickerModule} from "@syncfusion/ej2-angular-calendars";
 
 @NgModule({
   declarations: [
@@ -26,11 +23,8 @@ import { DatePickerAllModule } from '@syncfusion/ej2-angular-calendars';
     ReactiveFormsModule,
     GridAllModule,
     CommonModule,
-    DialogModule,
-    NumericTextBoxAllModule,
-    RatingAllModule,
-    CheckBoxModule,
-    DatePickerAllModule,
+    DateRangePickerModule,
+    DatePickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
