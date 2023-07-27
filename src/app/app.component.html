@@ -19,7 +19,7 @@
     </e-column>
     <e-column field='Documento' headerText='Documento' width="110" textAlign="center" editType="dropdownedit"></e-column>
     <e-column field='Rev' headerText='Rev' textAlign='center' width="70" editType="dropdownedit"></e-column>
-    <e-column field='Documento Vinculado' headerText='Documento Vinculado' [headerTemplate]='headerTemplateDocumentos' textAlign='center' width="90"></e-column>
+    <e-column field='Documento Vinculado' headerText='Documento Vinculado' [headerTemplate]='headerTemplateDocumentos' textAlign='center' width="90" editType="dropdownedit"></e-column>
     <e-column field='Agentes Vinculados' headerText='Agentes Vinculados' [headerTemplate]='headerTemplateAgentes' textAlign='center' width="90" editType="dropdownedit"></e-column>
     <e-column field='Responsável' headerText='Responsável' width="105" textAlign="center" editType="dropdownedit"></e-column>
     <e-column field='Concessão' headerText='Concessão' textAlign='center' width="100" editType="dropdownedit"></e-column>
@@ -27,12 +27,12 @@
     <e-column field='Subestação' headerText='Subestação' textAlign='center' width="100" editType="dropdownedit"></e-column>
     <e-column field='Início' headerText='Início' width="80" format='dd/MM/y' textAlign="center">
       <ng-template #editTemplate let-data>
-        <ejs-datepicker [(value)]="data.Termino" format='dd/MM/y' locale="pt-BR"></ejs-datepicker>
+        <ejs-datepicker [(value)]="data.Termino" format='dd/MM/y' locale="de"></ejs-datepicker>
       </ng-template>
     </e-column>
     <e-column field='Termino' headerText='Termino' textAlign='center' width="90" format='dd/MM/y'>
       <ng-template #editTemplate let-data>
-        <ejs-datepicker [(value)]="data.Termino" format='dd/MM/y' locale="pt-BR"></ejs-datepicker>
+        <ejs-datepicker [(value)]="data.Termino" format='dd/MM/y' locale="de"></ejs-datepicker>
       </ng-template>
     </e-column>
     <e-column field='Resumo' headerText='Resumo' textAlign='center' width="100"></e-column>

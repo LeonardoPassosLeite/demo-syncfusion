@@ -36,37 +36,67 @@ export class AppComponent implements OnInit{
       Início: new Date(4234234e5),
       Termino: new Date(5454554e5),
       Resumo: 'Obra em execução',
-      Comentarios: 1
+      Comentarios: 3
     },
     {
       Status: 'Aprovação',
-      Documento: 'AI-TAESA-659-845',
-      Rev: 1,
-      "Documento Vinculado": 'NPC 26943',
-      "Agentes Vinculados": 'Eletrosul COT',
-      Responsável: 'João Guilherme',
-      Concessão: 'Janaúba',
-      GM: 'ATE',
-      Subestação: 'Aymorés',
+      Documento: 'AI-TAESA-434-524',
+      Rev: 3,
+      "Documento Vinculado": 'NPC 84576',
+      "Agentes Vinculados": 'Eletronorte',
+      Responsável: 'Salem Gomes',
+      Concessão: 'Ivaí',
+      GM: 'STC',
+      Subestação: 'Novatrans',
       Início: new Date(545455e5),
       Termino: new Date(55555e5),
-      Resumo: 'Obra em execução',
-      Comentarios: 1
+      Resumo: 'Construção da nava LT',
+      Comentarios: 2
     },
     {
       Status: 'Agendada',
       Documento: 'AI-TAESA-659-845',
-      Rev: 1,
+      Rev: 5,
       "Documento Vinculado": 'NPC 26943',
       "Agentes Vinculados": 'Eletrosul COT',
-      Responsável: 'João Guilherme',
+      Responsável: 'Wanderson Cunha',
       Concessão: 'Janaúba',
-      GM: 'ATE',
-      Subestação: 'Aymorés',
+      GM: 'EAT',
+      Subestação: 'Novatrans',
       Início: new Date(8364186e5),
       Termino: new Date(8364186e5),
       Resumo: 'Obra em execução',
-      Comentarios: 1
+      Comentarios: 10
+    },
+    {
+      Status: 'Agendada',
+      Documento: 'AI-TAESA-659-845',
+      Rev: 3,
+      "Documento Vinculado": 'NPC 26943',
+      "Agentes Vinculados": 'Eletrosul COT',
+      Responsável: 'João Guilherme',
+      Concessão: 'Miracema',
+      GM: 'EDTE',
+      Subestação: 'Aymorés',
+      Início: new Date(8364186e5),
+      Termino: new Date(8364186e5),
+      Resumo: 'Construção da nava LT',
+      Comentarios: 5
+    },
+    {
+      Status: 'Elaboração',
+      Documento: 'AI-TAESA-234-764',
+      Rev: 7,
+      "Documento Vinculado": 'NPC 53462',
+      "Agentes Vinculados": 'Eletrosul COT',
+      Responsável: 'Wanderson Cunha',
+      Concessão: 'Miracema',
+      GM: 'ESTE',
+      Subestação: 'Novatrans',
+      Início: new Date(8364186e5),
+      Termino: new Date(8364186e5),
+      Resumo: 'Manutenção de LT',
+      Comentarios: 3
     },
   ];
 
@@ -131,5 +161,4 @@ export class AppComponent implements OnInit{
         this.editOptions = { allowEditing: true, allowAdding: true, allowDeleting: true, mode: 'Normal' };
         this.orderidrules = { required: true };
   }
-
 }

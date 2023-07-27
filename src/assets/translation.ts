@@ -1,5 +1,4 @@
 import { L10n, setCulture } from '@syncfusion/ej2-base';
-import { DatePicker } from '@syncfusion/ej2-calendars';
 
 setCulture('pt-BR');
 
@@ -50,5 +49,9 @@ L10n.load({
       'nextPagerTooltip': 'Para a próxima página',
       'previousPagerTooltip': 'Para a página anterior'
     },
-  }
+    'datepicker': {
+      'placeholder': 'Escolha uma data',
+      'today': 'Hoje'
+    },
+  },
 });
