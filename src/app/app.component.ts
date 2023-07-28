@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { EditService, EditSettingsModel, FilterService, GridComponent, QueryCellInfoEventArgs, SortService, ToolbarItems } from '@syncfusion/ej2-angular-grids';
 import { Agentes, agentesMock } from './temp.mock';
 
@@ -24,7 +24,6 @@ export class AppComponent implements OnInit {
   public editMode: boolean = false;
   public updateColor: string = '#ccc';
   public cancelColor: string = '#ccc';
-
 
   public dataSourceStatus: string[] = ['Elaboração', 'Aprovação', 'Agendada'];
   public dataSourcePeriodo: string[] = ['2022', '2023', '2024'];
@@ -57,10 +56,9 @@ export class AppComponent implements OnInit {
     ],
   };
 
-  constructor() {
+  constructor(private cdr: ChangeDetectorRef) {
     this.data = agentesMock;
     this.originalData = [...this.data];
-
   }
 
   public ngOnInit(): void {
@@ -72,12 +70,24 @@ export class AppComponent implements OnInit {
     this.toolbarOptions = ['Search'];
   }
 
+  public actionComplete(args: any) {
+    if (args.requestType === 'save') {
+      // Aqui, args.data contém os dados da linha que foram editados.
+      // Você pode usar isso para atualizar seu modelo de dados.
+      const index = this.data.findIndex(item => item.id === args.data.id);
+      if (index !== -1) {
+        // Certifique-se de fazer uma cópia do objeto antes de modificar para evitar a mutação do estado.
+        this.data[index] = { ...args.data };
+      }
+    }
+  }
+
   handleEdit() {
     this.gridInstance.startEdit();
     if (this.selectedRow) {
       this.editMode = true;
       this.updateColor = '#000';
-      this.cancelColor = '#000'; 
+      this.cancelColor = '#000';
     }
   }
 
@@ -121,22 +131,6 @@ export class AppComponent implements OnInit {
     });
   }
 
-  public actionBegin(args: any): void {
-    if (args.requestType === 'save') {
-      // 'args.data' contém os dados da linha que está sendo editada
-      // você precisa atualizar esses dados em seu 'originalData' e/ou servidor
-      const updatedItemIndex = this.originalData.findIndex(item => item.id === args.data.id);
-      if (updatedItemIndex !== -1) {
-        this.originalData[updatedItemIndex] = args.data;
-        // Aqui, você pode chamar um serviço para atualizar os dados no servidor
-        // Seu código pode variar dependendo de como você implementou seu serviço de dados
-        // this.dataService.updateData(args.data).subscribe(response => {
-        //   console.log('Data updated successfully');
-        // });
-      }
-    }
-  }
-
   filterByStatus($event: any): void {
     this.appliedFilters.status = $event.target.value;
     this.applyFilters();
@@ -148,8 +142,8 @@ export class AppComponent implements OnInit {
   }
 
   filterByPeriodo($event: any): void {
-    this.appliedFilters.inicio = $event.target.value
-    this.applyFilters();
+    this.appliedFilters.inicio = $event.target.value;
+    setTimeout(() => this.applyFilters());
   }
 
   applyFilters(): void {
@@ -166,10 +160,12 @@ export class AppComponent implements OnInit {
     if (this.appliedFilters.inicio) {
       const filterYear = new Date(parseInt(this.appliedFilters.inicio), 0);
       this.data = this.data.filter(item => {
-        const itemYear = new Date(parseInt(item.inicio.split('/')[2]), 0); 
+        const itemYear = new Date(parseInt(item.inicio.split('/')[2]), 0);
         return itemYear >= filterYear;
       });
     }
+    // Trigger the change detection to check for any changes in the component
+    this.cdr.detectChanges();
   }
 
   public customization(args: QueryCellInfoEventArgs) {
