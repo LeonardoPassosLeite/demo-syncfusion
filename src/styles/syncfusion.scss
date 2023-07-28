@@ -1,53 +1,104 @@
-.e-rowcell{
-  color: #666666 !important;
-  white-space: break-spaces !important;
-
-  &:nth-child(1){
-    background-color: #F7E5FF !important;
-  }
-
-  &:nth-child(2){
-    text-decoration: underline;
-    cursor: pointer;
-  }
-
-}
-
-.e-headercell{
-  background-color: #F8F8F8 !important;
-  color: #7082A4 !important;
-  font-weight: bolder;
-}
-
-.e-currentitem {
-  background-color: #0078d7 !important;
-}
-
-.e-toolbar{
+.e-toolbar {
   background-color: #DBE0E5 !important;
-  padding: 10px;
+  padding: 15px;
+}
+
+.toolbar-container {
+  display: flex;
+}
+
+.margin-toolbar {
+ padding-right: 50px;
 }
 
 .e-grid .e-gridpager .e-currentitem {
   background-color: #05286A !important;
 }
 
+.e-toolbar-items {
+  border-radius: 5px !important;
+  background-color: #fff !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.e-tbar-btn {
+  background-color: #fff !important;
+}
+
+.e-tbar-btn-text,
+.e-edit,
+.e-delete,
+.e-update,
+.e-cancel {
+  color: #7082A4 !important;
+  margin-right: 20px;
+}
+
+.form-control {
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: none;
+  width: 420px;
+  height: 39px;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper::before {
+  content: "";
+  position: absolute;
+  height: 120%;
+  border-left: 2px solid #cccccc8c;
+  right: 50px; 
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+select.form-control {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url('../assets/svg/Caminho\ 375.svg') no-repeat;
+  background-position-x: 95%;
+  background-position-y: 50%;
+  background-size: 20px;
+  padding-right: 30px;
+  padding-left: 5px;
+  width: 280px;
+}
+
+select.form-control::before {
+  content: "";
+  position: absolute;
+  height: 60%;
+  border-left: 1px solid black;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+select.form-control::-ms-expand {
+  display: none;
+}
+
+.input-container {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7082A4;
+  font-size: 1.5em;
+}
+
 .e-grid .e-gridpager .e-numericitem, .e-grid .e-gridpager .e-numericitem:hover {
   border-radius: initial;
-}
-
-.e-toolbar-items{
-  border-radius: 5px !important;
-  margin-left: 10px;
-  background-color: #fff !important;
-}
-
-.e-tbar-btn{
-  background-color: #fff !important;
-}
-
-.e-tbar-btn-text, .e-edit, .e-delete, .e-update, .e-cancel{
-  color: #7082A4 !important;
 }
 
 .e-toolbar-item .e-btn .e-icons.e-cancel:before {

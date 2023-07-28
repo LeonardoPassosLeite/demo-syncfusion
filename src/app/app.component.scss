@@ -1,28 +1,59 @@
-.status, .comentarios{
+.control-section {
+  margin-top: 40px;
+}
+
+.img{
+width: 1500px;
+}
+
+.e-grid .e-headercell {
+  height: 67px;
+  line-height: 50px;
+  border-right: 1px solid #DFDFDF;
+  background-color: #F8F8F8;
+  color: #7082A4;
+  text-align: center;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.e-grid .e-headercell:last-child {
+  border-right: none;
+}
+
+.e-grid .e-rowcell {
+  border-right: 1px solid #ddd;
+  text-align: center;
+  white-space: normal;
+  word-wrap: break-word;
+  height: 50px;
+  color: gray;
+}
+
+.status,
+.comentarios {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
 
-  i{
+  i {
     font-size: 20px;
   }
-
 }
 
-.comentarios{
-
-  >div{
+.comentarios {
+  >div {
     color: #666666;
     display: flex;
     align-items: center;
     gap: 3px;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.8);
-    padding: 7px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.8);
+    padding: 7px 15px;
     border-radius: 25px;
     cursor: pointer;
 
-    i{
+    i {
       font-size: 15px;
       color: #7082A4;
     }
@@ -30,23 +61,18 @@
 }
 
 .elaboracao {
-  background-color: #FEFFD0 !important;
+  background-color: #FEFFD0;
 }
 
 .aprovacao {
-  background-color: #F7E5FF !important;
+  background-color: #F7E5FF;
 }
 
 .agendada {
-  background-color: #D0F7FF !important;
+  background-color: #D0F7FF;
 }
-
 
 .quebra-linha {
   white-space: normal;
   line-height: 1.2;
-
-  div{
-    display: flex;
-  }
 }
