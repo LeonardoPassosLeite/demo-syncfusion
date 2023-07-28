@@ -52,16 +52,8 @@
       <e-column field='concessao' headerText='Concessão' editType="dropdownedit" width='125'></e-column>
       <e-column field='gm' headerText='GM' editType="dropdownedit" width='90'></e-column>
       <e-column field='subestacao' headerText='Subestação' editType="dropdownedit" width='150'></e-column>
-      <e-column field='inicio' headerText='Início' width='120'>
-        <ng-template #editTemplate let-data>
-          <ejs-datepicker [(value)]="data.inicio" format='dd/MM/yyyy' locale="de"></ejs-datepicker>
-        </ng-template>
-      </e-column>
-      <e-column field='termino' headerText='Termino' width='120'>
-        <ng-template #editTemplate let-data>
-          <ejs-datepicker [(value)]="data.termino" format='dd/MM/yyyy' locale="de"></ejs-datepicker>
-        </ng-template>
-      </e-column>
+      <e-column field='inicio' headerText='Início' editType="datepickeredit" [edit]='editParams' format='dd/MM/yyyy' width='120'></e-column>
+      <e-column field='termino' headerText='Termino' editType="datepickeredit" [edit]='editParams' format='dd/MM/yyyy' width='120'></e-column>
       <e-column field='resumo' headerText='Resumo' width='120'></e-column>
       <e-column field='comentarios' headerText='Comentários' [template]='comentarioTemplate' [allowEditing]='false'
         width='150'></e-column>

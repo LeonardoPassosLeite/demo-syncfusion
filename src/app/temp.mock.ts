@@ -10,8 +10,8 @@ export interface Agentes {
     concessao: string;
     gm: string;
     subestacao: string;
-    inicio: string;
-    termino: string;
+    inicio: Date;
+    termino: Date;
     resumo: string;
     comentarios: number;
     status: string;
@@ -34,8 +34,8 @@ export const agentesMock: Agentes[] = [
         concessao: 'Janaúba',
         gm: 'ATE',
         subestacao: 'Aymorés',
-        inicio: '21/02/2021',
-        termino: '23/05/2023',
+        inicio: new Date('2021-02-21'),
+        termino: new Date('2023-05-23'),
         resumo: 'Obra em execução',
         comentarios: 2
     },
@@ -50,8 +50,8 @@ export const agentesMock: Agentes[] = [
         concessao: 'Miracema',
         gm: 'EAT',
         subestacao: 'Novatrans',
-        inicio: '21/02/2022',
-        termino: '23/05/2023',
+        inicio: new Date('2021-02-21'),
+        termino: new Date('2023-05-23'),
         resumo: 'Construção de nava LT',
         comentarios: 3
     },
@@ -66,8 +66,8 @@ export const agentesMock: Agentes[] = [
         concessao: 'Ivaí',
         gm: 'STC',
         subestacao: 'Aymorés',
-        inicio: '21/02/2023',
-        termino: '23/05/2023',
+        inicio: new Date('2021-02-21'),
+        termino: new Date('2023-05-23'),
         resumo: 'Manutenção de LT',
         comentarios: 1
     },
@@ -82,8 +82,8 @@ export const agentesMock: Agentes[] = [
         concessao: 'Ivaí',
         gm: 'STC',
         subestacao: 'Aymorés',
-        inicio: '21/02/2023',
-        termino: '23/05/2023',
+        inicio: new Date('2021-02-21'),
+        termino: new Date('2023-05-23'),
         resumo: 'Manutenção de LT',
         comentarios: 1
     },
@@ -98,8 +98,8 @@ export const agentesMock: Agentes[] = [
         concessao: 'Ivaí',
         gm: 'STC',
         subestacao: 'Aymorés',
-        inicio: '21/02/2023',
-        termino: '23/05/2023',
+        inicio: new Date('2021-02-21'),
+        termino: new Date('2023-05-23'),
         resumo: 'Manutenção de LT',
         comentarios: 1
     },
@@ -114,8 +114,8 @@ export const agentesMock: Agentes[] = [
         concessao: 'Ivaí',
         gm: 'STC',
         subestacao: 'Aymorés',
-        inicio: '21/02/2023',
-        termino: '23/05/2023',
+        inicio: new Date('2021-02-21'),
+        termino: new Date('2023-05-23'),
         resumo: 'Manutenção de LT',
         comentarios: 1
     },
@@ -130,8 +130,8 @@ export const agentesMock: Agentes[] = [
         concessao: 'Ivaí',
         gm: 'STC',
         subestacao: 'Aymorés',
-        inicio: '21/02/2023',
-        termino: '23/05/2023',
+        inicio: new Date('2021-02-21'),
+        termino: new Date('2023-05-23'),
         resumo: 'Manutenção de LT',
         comentarios: 1
     },
@@ -146,8 +146,8 @@ export const agentesMock: Agentes[] = [
         concessao: 'Ivaí',
         gm: 'STC',
         subestacao: 'Aymorés',
-        inicio: '21/02/2023',
-        termino: '23/05/2023',
+        inicio: new Date('2021-02-21'),
+        termino: new Date('2023-05-23'),
         resumo: 'Manutenção de LT',
         comentarios: 1
     },
@@ -162,8 +162,8 @@ export const agentesMock: Agentes[] = [
         concessao: 'Ivaí',
         gm: 'STC',
         subestacao: 'Aymorés',
-        inicio: '21/02/2023',
-        termino: '23/05/2023',
+        inicio: new Date('2021-02-21'),
+        termino: new Date('2023-05-23'),
         resumo: 'Manutenção de LT',
         comentarios: 1
     },
@@ -178,8 +178,8 @@ export const agentesMock: Agentes[] = [
         concessao: 'Ivaí',
         gm: 'STC',
         subestacao: 'Aymorés',
-        inicio: '21/02/2023',
-        termino: '23/05/2023',
+        inicio: new Date('2021-02-21'),
+        termino: new Date('2023-05-23'),
         resumo: 'Manutenção de LT',
         comentarios: 1
     },
@@ -194,8 +194,8 @@ export const agentesMock: Agentes[] = [
         concessao: 'Ivaí',
         gm: 'STC',
         subestacao: 'Aymorés',
-        inicio: '21/02/2023',
-        termino: '23/05/2023',
+        inicio: new Date('2021-02-21'),
+        termino: new Date('2023-05-23'),
         resumo: 'Manutenção de LT',
         comentarios: 1
     },
@@ -210,8 +210,8 @@ export const agentesMock: Agentes[] = [
         concessao: 'Ivaí',
         gm: 'STC',
         subestacao: 'Aymorés',
-        inicio: '21/02/2023',
-        termino: '23/05/2023',
+        inicio: new Date('2021-02-21'),
+        termino: new Date('2023-05-23'),
         resumo: 'Manutenção de LT',
         comentarios: 1
     },
@@ -226,8 +226,8 @@ export const agentesMock: Agentes[] = [
         concessao: 'Ivaí',
         gm: 'STC',
         subestacao: 'Aymorés',
-        inicio: '21/02/2023',
-        termino: '23/05/2023',
+        inicio: new Date('2021-02-21'),
+        termino: new Date('2023-05-23'),
         resumo: 'Manutenção de LT',
         comentarios: 1
     },
@@ -242,8 +242,8 @@ export const agentesMock: Agentes[] = [
         concessao: 'Ivaí',
         gm: 'STC',
         subestacao: 'Aymorés',
-        inicio: '21/02/2023',
-        termino: '23/05/2023',
+        inicio: new Date('2021-02-21'),
+        termino: new Date('2023-05-23'),
         resumo: 'Manutenção de LT',
         comentarios: 1
     },
@@ -258,8 +258,8 @@ export const agentesMock: Agentes[] = [
         concessao: 'Ivaí',
         gm: 'STC',
         subestacao: 'Aymorés',
-        inicio: '21/02/2023',
-        termino: '23/05/2023',
+        inicio: new Date('2021-02-21'),
+        termino: new Date('2023-05-23'),
         resumo: 'Manutenção de LT',
         comentarios: 1
     },
