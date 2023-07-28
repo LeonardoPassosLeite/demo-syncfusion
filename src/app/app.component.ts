@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { EditService, EditSettingsModel, FilterService, GridComponent, QueryCellInfoEventArgs, SortService, ToolbarItems } from '@syncfusion/ej2-angular-grids';
+import { EditService, EditSettingsModel, FilterService, GridComponent, QueryCellInfoEventArgs, SortService, ToolbarItems, FilterSettingsModel } from '@syncfusion/ej2-angular-grids';
 import { Agentes, agentesMock } from './temp.mock';
+import '../assets/translation';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ export class AppComponent implements OnInit {
   @Input() items!: any[];
   data: Agentes[];
   originalData: Agentes[];
-  public filterSettings: Object = {};
+  public filterSettings!: FilterSettingsModel;
   public toolbarItems!: ToolbarItems[];
   public editOptions!: EditSettingsModel;
   public toolbarOptions?: ToolbarItems[];
@@ -60,16 +61,6 @@ export class AppComponent implements OnInit {
   constructor() {
     this.data = agentesMock;
     this.originalData = [...this.data];
-
-  }
-
-  public ngOnInit(): void {
-    this.originalItens = ['item1', 'item2', 'item3'];
-    this.filterSettings = {
-      type: 'Menu',
-    }
-    this.editOptions = { allowEditing: true, allowAdding: true, allowDeleting: true, mode: 'Normal' }
-    this.toolbarOptions = ['Search'];
   }
 
   handleEdit() {
@@ -77,7 +68,7 @@ export class AppComponent implements OnInit {
     if (this.selectedRow) {
       this.editMode = true;
       this.updateColor = '#000';
-      this.cancelColor = '#000'; 
+      this.cancelColor = '#000';
     }
   }
 
@@ -166,7 +157,7 @@ export class AppComponent implements OnInit {
     if (this.appliedFilters.inicio) {
       const filterYear = new Date(parseInt(this.appliedFilters.inicio), 0);
       this.data = this.data.filter(item => {
-        const itemYear = new Date(parseInt(item.inicio.split('/')[2]), 0); 
+        const itemYear = new Date(parseInt(item.inicio.split('/')[2]), 0);
         return itemYear >= filterYear;
       });
     }
@@ -183,5 +174,43 @@ export class AppComponent implements OnInit {
         args.cell.classList.add('agendada');
       }
     }
+  }
+
+  public settings(){
+    this.originalItens = ['item1', 'item2', 'item3'];
+    this.filterSettings = {
+      type: 'Menu',
+      operators: {
+        stringOperator: [
+          { value: 'startsWith', text: 'Começa com' },
+          { value: 'endsWith', text: 'Termina com' },
+          { value: 'contains', text: 'Contém' },
+          { value: 'equal', text: 'Igual' },
+          { value: 'notEqual', text: 'Não igual' }
+        ],
+        numberOperator: [
+          { value: 'equal', text: 'Igual' },
+          { value: 'greaterThan', text: 'Maior que' },
+          { value: 'greaterThanOrEqual', text: 'Maior ou igual a' },
+          { value: 'lessThan', text: 'Menor que' },
+          { value: 'lessThanOrEqual', text: 'Menor ou igual a' },
+          { value: 'notEqual', text: 'Não igual' }
+        ],
+        dateOperator: [
+          { value: 'equal', text: 'Igual' },
+          { value: 'greaterThan', text: 'Maior que' },
+          { value: 'greaterThanOrEqual', text: 'Maior ou igual a' },
+          { value: 'lessThan', text: 'Menor que' },
+          { value: 'lessThanOrEqual', text: 'Menor ou igual a' },
+          { value: 'notEqual', text: 'Não igual' },
+        ],
+      }
+    }
+    this.editOptions = { allowEditing: true, allowAdding: true, allowDeleting: true, mode: 'Normal' }
+    this.toolbarOptions = ['Search'];
+  }
+
+  public ngOnInit(): void {
+    this.settings();
   }
 }
