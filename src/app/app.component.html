@@ -37,10 +37,10 @@
   </div>
   <ejs-grid #overviewgrid [dataSource]='data' (queryCellInfo)="customization($event)" [allowPaging]='true'
     [allowFiltering]='true' [filterSettings]="filterSettings" [editSettings]='editOptions' [allowSorting]='true'
-    gridLines='Both' (rowSelected)="rowSelected($event)">
+    gridLines='Both' (rowSelected)="rowSelected($event)" (actionComplete)="actionComplete($event)">
     <e-columns>
       <e-column field='status' headerText='Status' editType="dropdownedit" [template]='statusTemplate'
-        editType="dropdownedit" width='140'></e-column>
+        width='140'></e-column>
       <e-column field='id' [visible]='false' headerText='ID' [isPrimaryKey]='true'></e-column>
       <e-column field='documento' headerText='Documento' editType="dropdownedit" width='150'></e-column>
       <e-column field='rev' headerText='Rev' editType="dropdownedit" width='90'></e-column>
