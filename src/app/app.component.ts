@@ -121,6 +121,22 @@ export class AppComponent implements OnInit {
     });
   }
 
+  public actionBegin(args: any): void {
+    if (args.requestType === 'save') {
+      // 'args.data' contém os dados da linha que está sendo editada
+      // você precisa atualizar esses dados em seu 'originalData' e/ou servidor
+      const updatedItemIndex = this.originalData.findIndex(item => item.id === args.data.id);
+      if (updatedItemIndex !== -1) {
+        this.originalData[updatedItemIndex] = args.data;
+        // Aqui, você pode chamar um serviço para atualizar os dados no servidor
+        // Seu código pode variar dependendo de como você implementou seu serviço de dados
+        // this.dataService.updateData(args.data).subscribe(response => {
+        //   console.log('Data updated successfully');
+        // });
+      }
+    }
+  }
+
   filterByStatus($event: any): void {
     this.appliedFilters.status = $event.target.value;
     this.applyFilters();
