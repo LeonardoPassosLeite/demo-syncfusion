@@ -76,8 +76,8 @@ export class AppComponent implements OnInit {
     this.gridInstance.startEdit();
     if (this.selectedRow) {
       this.editMode = true;
-      this.updateColor = '#000'; // Altere para a cor que você deseja quando o item "Atualizar" estiver habilitado
-      this.cancelColor = '#000'; // Altere para a cor que você deseja quando o item "Cancelar" estiver habilitado
+      this.updateColor = '#000';
+      this.cancelColor = '#000'; 
     }
   }
 
@@ -97,6 +97,10 @@ export class AppComponent implements OnInit {
     this.editMode = false;
     this.updateColor = '#ccc';
     this.cancelColor = '#ccc';
+  }
+
+  rowSelected(args: any) {
+    this.selectedRow = args.data;
   }
 
   appliedFilters = {
@@ -144,9 +148,9 @@ export class AppComponent implements OnInit {
     }
 
     if (this.appliedFilters.inicio) {
-      const filterYear = new Date(parseInt(this.appliedFilters.inicio), 0); // Convert string to Date
+      const filterYear = new Date(parseInt(this.appliedFilters.inicio), 0);
       this.data = this.data.filter(item => {
-        const itemYear = new Date(parseInt(item.inicio.split('/')[2]), 0); // Convert string to Date
+        const itemYear = new Date(parseInt(item.inicio.split('/')[2]), 0); 
         return itemYear >= filterYear;
       });
     }

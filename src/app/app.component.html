@@ -4,8 +4,10 @@
       <e-items>
         <e-item id='Editar' text='Editar' (click)="handleEdit()" prefixIcon='e-icons e-edit'></e-item>
         <e-item id='Deletar' text='Deletar' (click)="handleDelete()" prefixIcon='e-icons e-delete'></e-item>
-        <e-item id='Atualizar' text='Atualizar' [disabled]="!editMode" [style.color]="updateColor" (click)="handleUpdate()" prefixIcon='e-icons e-update'></e-item>
-        <e-item id='Cancelar' text='Cancelar' [disabled]="!editMode" [style.color]="cancelColor" (click)="handleCancel()" prefixIcon='e-icons e-cancel'></e-item>        
+        <e-item id='Atualizar' text='Atualizar' [disabled]="!editMode" [style.color]="updateColor"
+          (click)="handleUpdate()" prefixIcon='e-icons e-update'></e-item>
+        <e-item id='Cancelar' text='Cancelar' [disabled]="!editMode" [style.color]="cancelColor"
+          (click)="handleCancel()" prefixIcon='e-icons e-cancel'></e-item>
       </e-items>
     </ejs-toolbar>
 
@@ -35,14 +37,14 @@
   </div>
   <ejs-grid #overviewgrid [dataSource]='data' (queryCellInfo)="customization($event)" [allowPaging]='true'
     [allowFiltering]='true' [filterSettings]="filterSettings" [editSettings]='editOptions' [allowSorting]='true'
-    gridLines='Both'>
+    gridLines='Both' (rowSelected)="rowSelected($event)">
     <e-columns>
       <e-column field='status' headerText='Status' editType="dropdownedit" [template]='statusTemplate'
-        width='140'></e-column>
+        editType="dropdownedit" width='140'></e-column>
       <e-column field='id' [visible]='false' headerText='ID' [isPrimaryKey]='true'></e-column>
-      <e-column field='documento' headerText='Documento' [allowEditing]='false' width='150'></e-column>
-      <e-column field='rev' headerText='Rev' [allowEditing]='false' width='90'></e-column>
-      <e-column field='documentoVinculado' [headerTemplate]='headerTemplateDocumentos' [allowEditing]='false'
+      <e-column field='documento' headerText='Documento' editType="dropdownedit" width='150'></e-column>
+      <e-column field='rev' headerText='Rev' editType="dropdownedit" width='90'></e-column>
+      <e-column field='documentoVinculado' [headerTemplate]='headerTemplateDocumentos' editType="dropdownedit"
         width='126'></e-column>
       <e-column field='agentesVinculados' [headerTemplate]='headerTemplateAgentes' editType="dropdownedit"
         width='125'></e-column>
