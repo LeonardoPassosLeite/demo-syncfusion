@@ -35,7 +35,7 @@
       </e-items>
     </ejs-toolbar>
   </div>
-  <ejs-grid #overviewgrid [dataSource]='data' (queryCellInfo)="customization($event)" [allowPaging]='true'
+  <ejs-grid [locale]="'pt-BR'" #overviewgrid [dataSource]='data' (queryCellInfo)="customization($event)" [allowPaging]='true'
     [allowFiltering]='true' [filterSettings]="filterSettings" [editSettings]='editOptions' [allowSorting]='true'
     gridLines='Both' (rowSelected)="rowSelected($event)" (actionComplete)="actionComplete($event)">
     <e-columns>

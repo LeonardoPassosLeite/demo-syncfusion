@@ -1,8 +1,10 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { ColumnModel, EditService, EditSettingsModel, FilterService, GridComponent, QueryCellInfoEventArgs, SortService, ToolbarItems } from '@syncfusion/ej2-angular-grids';
+import { EditService, EditSettingsModel, FilterService, FilterSettingsModel, GridComponent, QueryCellInfoEventArgs, SortService, ToolbarItems } from '@syncfusion/ej2-angular-grids';
 import { DatePicker } from '@syncfusion/ej2-angular-calendars';
+import { L10n, setCulture } from '@syncfusion/ej2-base';
 
 import { Agentes, agentesMock } from './temp.mock';
+import { TranslationService } from 'src/assets/translation';
 
 @Component({
   selector: 'app-root',
@@ -15,14 +17,15 @@ export class AppComponent implements OnInit {
   @Input() items!: any[];
   data: Agentes[];
   originalData: Agentes[];
-  public filterSettings: Object = {};
+
+  public filterSettings!: FilterSettingsModel;
   public toolbarItems!: ToolbarItems[];
   public editOptions!: EditSettingsModel;
   public toolbarOptions?: ToolbarItems[];
   public itens!: string[];
   public originalItens!: string[];
   public datePicker!: DatePicker;
-  public inicioDate: Date = new Date(); 
+  public inicioDate: Date = new Date();
   public terminoDate: Date = new Date();
   selectedRow: any = null;
 
@@ -63,18 +66,14 @@ export class AppComponent implements OnInit {
     ],
   };
 
-  constructor() {
+  constructor(private translationService: TranslationService) {
     this.data = agentesMock;
     this.originalData = [...this.data];
   }
 
-  public ngOnInit(): void {
-    this.originalItens = ['item1', 'item2', 'item3'];
-    this.filterSettings = {
-      type: 'Menu',
-    }
-    this.editOptions = { allowEditing: true, allowAdding: true, allowDeleting: true, mode: 'Normal' }
-    this.toolbarOptions = ['Search'];
+  ngOnInit(): void {
+    this.settings();
+    this.translationService.loadLocalization();
   }
 
   public actionComplete(args: any) {
@@ -173,5 +172,39 @@ export class AppComponent implements OnInit {
         args.cell.classList.add('agendada');
       }
     }
+  }
+
+  public settings() {
+    this.originalItens = ['item1', 'item2', 'item3'];
+    this.filterSettings = {
+      type: 'Menu',
+      operators: {
+        stringOperator: [
+          { value: 'startsWith', text: 'Começa com' },
+          { value: 'endsWith', text: 'Termina com' },
+          { value: 'contains', text: 'Contém' },
+          { value: 'equal', text: 'Igual' },
+          { value: 'notEqual', text: 'Não igual' },
+        ],
+        numberOperator: [
+          { value: 'equal', text: 'Igual' },
+          { value: 'greaterThan', text: 'Maior que' },
+          { value: 'greaterThanOrEqual', text: 'Maior ou igual a' },
+          { value: 'lessThan', text: 'Menor que' },
+          { value: 'lessThanOrEqual', text: 'Menor ou igual a' },
+          { value: 'notEqual', text: 'Não igual' }
+        ],
+        dateOperator: [
+          { value: 'equal', text: 'Igual' },
+          { value: 'greaterThan', text: 'Maior que' },
+          { value: 'greaterThanOrEqual', text: 'Maior ou igual a' },
+          { value: 'lessThan', text: 'Menor que' },
+          { value: 'lessThanOrEqual', text: 'Menor ou igual a' },
+          { value: 'notEqual', text: 'Não igual' },
+        ],
+      }
+    }
+    this.editOptions = { allowEditing: true, allowAdding: true, allowDeleting: true, mode: 'Normal' }
+    this.toolbarOptions = ['Search'];
   }
 }
