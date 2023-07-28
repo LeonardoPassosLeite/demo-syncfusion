@@ -25,14 +25,14 @@
     <e-column field='Concessão' headerText='Concessão' textAlign='center' width="100" editType="dropdownedit"></e-column>
     <e-column field='GM' headerText='GM' textAlign='center' width="70" editType="dropdownedit"></e-column>
     <e-column field='Subestação' headerText='Subestação' textAlign='center' width="100" editType="dropdownedit"></e-column>
-    <e-column field='Início' headerText='Início' width="80" format='dd/MM/y' textAlign="center">
+    <e-column field='Inicio' headerText='Início' width="90" format='dd/MM/y' textAlign="center">
       <ng-template #editTemplate let-data>
-        <ejs-datepicker [(value)]="data.Termino" format='dd/MM/y' locale="de"></ejs-datepicker>
+        <ejs-datepicker [(value)]="data.Inicio" format='dd/MM/y' [showTodayButton]="false"></ejs-datepicker>
       </ng-template>
     </e-column>
     <e-column field='Termino' headerText='Termino' textAlign='center' width="90" format='dd/MM/y'>
       <ng-template #editTemplate let-data>
-        <ejs-datepicker [(value)]="data.Termino" format='dd/MM/y' locale="de"></ejs-datepicker>
+        <ejs-datepicker [(value)]="data.Termino" format='dd/MM/y' [showTodayButton]="false"></ejs-datepicker>
       </ng-template>
     </e-column>
     <e-column field='Resumo' headerText='Resumo' textAlign='center' width="100"></e-column>

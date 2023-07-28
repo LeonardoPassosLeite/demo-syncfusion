@@ -49,9 +49,5 @@ L10n.load({
       'nextPagerTooltip': 'Para a próxima página',
       'previousPagerTooltip': 'Para a página anterior'
     },
-    'datepicker': {
-      'placeholder': 'Escolha uma data',
-      'today': 'Hoje'
-    },
   },
 });
