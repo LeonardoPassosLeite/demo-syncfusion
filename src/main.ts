@@ -8,6 +8,9 @@ import gregorian from 'cldr-data/main/pt/ca-gregorian.json';
 import numbers from 'cldr-data/main/pt/numbers.json';
 import timeZoneNames from 'cldr-data/main/pt/timeZoneNames.json';
 import weekData from 'cldr-data/supplemental/weekData.json';
+import { enableProdMode } from '@angular/core';
+
+enableProdMode();
 
 registerLicense('Ngo9BigBOggjHTQxAR8/V1NGaF5cXmpCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdgWXhcdnVXRGNeVEV1WUQ=');
 

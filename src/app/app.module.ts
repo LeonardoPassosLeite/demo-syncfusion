@@ -13,6 +13,8 @@ import { CheckBoxModule } from '@syncfusion/ej2-angular-buttons';
 import { DatePickerAllModule } from '@syncfusion/ej2-angular-calendars';
 import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
 import { DropDownButtonModule } from '@syncfusion/ej2-angular-splitbuttons';
+import { PdfViewerModule, LinkAnnotationService, BookmarkViewService, MagnificationService, ThumbnailViewService,
+  ToolbarService, NavigationService, TextSearchService, TextSelectionService, PrintService  } from '@syncfusion/ej2-angular-pdfviewer';
 
 @NgModule({
   declarations: [
@@ -34,10 +36,12 @@ import { DropDownButtonModule } from '@syncfusion/ej2-angular-splitbuttons';
     RatingAllModule,
     CheckBoxModule,
     DatePickerAllModule,
-    DropDownButtonModule 
+    DropDownButtonModule,
+    PdfViewerModule 
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [LinkAnnotationService, BookmarkViewService, MagnificationService,
+    ThumbnailViewService, ToolbarService, NavigationService, TextSearchService, TextSelectionService, PrintService],
+  bootstrap: [AppComponent,]
 })
 export class AppModule {
 }

@@ -8,7 +8,7 @@
 }
 
 .margin-toolbar {
- padding-right: 50px;
+  padding-right: 102px;
 }
 
 .e-grid .e-gridpager .e-currentitem {
@@ -17,12 +17,7 @@
 
 .e-toolbar-items {
   border-radius: 5px !important;
-  background-color: #fff !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(0, 0, 0, 0.1);
-}
-
-.e-tbar-btn {
-  background-color: #fff !important;
 }
 
 .e-tbar-btn-text,
@@ -31,15 +26,14 @@
 .e-update,
 .e-cancel {
   color: #7082A4 !important;
-  margin-right: 20px;
+  margin-right: 60px;
+  font-size: 16px !important;
 }
 
 .form-control {
   border: none;
   border-radius: 5px;
-  outline: none;
-  box-shadow: none;
-  width: 420px;
+  width: 240px;
   height: 39px;
 }
 
@@ -51,8 +45,8 @@
   content: "";
   position: absolute;
   height: 120%;
-  border-left: 2px solid #cccccc8c;
-  right: 50px; 
+  border-left: 2px solid #cccccce0;
+  right: 50px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -67,8 +61,17 @@ select.form-control {
   background-size: 20px;
   padding-right: 30px;
   padding-left: 5px;
-  width: 280px;
+  width: 260px;
 }
+
+select.form-control::-ms-expand {
+  display: none;
+}
+
+.form-control option {
+  padding-top: 50px;
+}
+
 
 select.form-control::before {
   content: "";
@@ -97,7 +100,8 @@ select.form-control::-ms-expand {
   font-size: 1.5em;
 }
 
-.e-grid .e-gridpager .e-numericitem, .e-grid .e-gridpager .e-numericitem:hover {
+.e-grid .e-gridpager .e-numericitem,
+.e-grid .e-gridpager .e-numericitem:hover {
   border-radius: initial;
 }
 
@@ -124,5 +128,4 @@ select.form-control::-ms-expand {
 .e-filtermenudiv.e-icons.e-icon-filter:before {
   content: "\e94c" !important;
   font-family: "primeicons";
-  font-size: 12px;
 }

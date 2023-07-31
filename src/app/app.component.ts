@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { EditService, EditSettingsModel, FilterService, FilterSettingsModel, GridComponent, QueryCellInfoEventArgs, SortService, ToolbarItems } from '@syncfusion/ej2-angular-grids';
 import { DatePicker } from '@syncfusion/ej2-angular-calendars';
-import { L10n, setCulture } from '@syncfusion/ej2-base';
+import { setCulture } from '@syncfusion/ej2-base';
 
 import { Agentes, agentesMock } from './temp.mock';
 import { TranslationService } from 'src/assets/translation';
@@ -66,6 +66,9 @@ export class AppComponent implements OnInit {
     ],
   };
 
+  public service = 'https://ej2services.syncfusion.com/production/web-services/api/pdfviewer';
+  public document = 'PDF_Succinctly.pdf';
+
   constructor(private translationService: TranslationService) {
     this.data = agentesMock;
     this.originalData = [...this.data];
@@ -74,6 +77,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.settings();
     this.translationService.loadLocalization();
+    setCulture('pt-BR');
   }
 
   public actionComplete(args: any) {
@@ -159,6 +163,10 @@ export class AppComponent implements OnInit {
     if (this.appliedFilters.concessao) {
       this.data = this.data.filter(item => item.concessao === this.appliedFilters.concessao);
     }
+
+    if (this.appliedFilters.inicio) {
+      this.data = this.data.filter(item => new Date(item.inicio).getFullYear().toString() === this.appliedFilters.inicio);
+    }
   }
 
   public customization(args: QueryCellInfoEventArgs) {
@@ -196,12 +204,12 @@ export class AppComponent implements OnInit {
         ],
         dateOperator: [
           { value: 'equal', text: 'Igual' },
-          { value: 'greaterThan', text: 'Maior que' },
-          { value: 'greaterThanOrEqual', text: 'Maior ou igual a' },
-          { value: 'lessThan', text: 'Menor que' },
-          { value: 'lessThanOrEqual', text: 'Menor ou igual a' },
           { value: 'notEqual', text: 'Não igual' },
-        ],
+          { value: 'greaterThan', text: 'Depois' },
+          { value: 'lessThan', text: 'Antes' },
+          { value: 'greaterThanOrEqual', text: 'Igual ou depois' },
+          { value: 'lessThanOrEqual', text: 'Igual ou antes' }
+        ]
       }
     }
     this.editOptions = { allowEditing: true, allowAdding: true, allowDeleting: true, mode: 'Normal' }

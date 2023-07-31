@@ -3,7 +3,8 @@
     <ejs-toolbar>
       <e-items>
         <e-item id='Editar' text='Editar' (click)="handleEdit()" prefixIcon='e-icons e-edit'></e-item>
-        <e-item id='Deletar' text='Deletar' (click)="handleDelete()" prefixIcon='e-icons e-delete'></e-item>
+        <e-item class="teste" id='Deletar' text='Deletar' (click)="handleDelete()"
+          prefixIcon='e-icons e-delete'></e-item>
         <e-item id='Atualizar' text='Atualizar' [disabled]="!editMode" [style.color]="updateColor"
           (click)="handleUpdate()" prefixIcon='e-icons e-update'></e-item>
         <e-item id='Cancelar' text='Cancelar' [disabled]="!editMode" [style.color]="cancelColor"
@@ -19,47 +20,52 @@
 
     <ejs-toolbar>
       <e-items>
-        <e-item [template]='dropdownStatusTemplate'></e-item>
+        <e-item [template]='selectStatusTemplate'></e-item>
       </e-items>
     </ejs-toolbar>
 
     <ejs-toolbar>
       <e-items>
-        <e-item [template]='dropdownPeriodoTemplate'></e-item>
+        <e-item [template]='selectPeriodoTemplate'></e-item>
       </e-items>
     </ejs-toolbar>
 
     <ejs-toolbar class="margin-toolbar">
       <e-items>
-        <e-item [template]='dropdownConcessaoTemplate'></e-item>
+        <e-item [template]='selectConcessaoTemplate'></e-item>
       </e-items>
     </ejs-toolbar>
   </div>
-  <ejs-grid [locale]="'pt-BR'" #overviewgrid [dataSource]='data' (queryCellInfo)="customization($event)" [allowPaging]='true'
-    [allowFiltering]='true' [filterSettings]="filterSettings" [editSettings]='editOptions' [allowSorting]='true'
-    gridLines='Both' (rowSelected)="rowSelected($event)" (actionComplete)="actionComplete($event)">
+
+  <ejs-grid [locale]="'pt-BR'" #overviewgrid [dataSource]='data' (queryCellInfo)="customization($event)"
+    [allowPaging]='true' [allowFiltering]='true' [filterSettings]="filterSettings" [editSettings]='editOptions'
+    [allowSorting]='true' gridLines='Both' (rowSelected)="rowSelected($event)"
+    (actionComplete)="actionComplete($event)">
     <e-columns>
       <e-column field='status' headerText='Status' editType="dropdownedit" [template]='statusTemplate'
-        width='140'></e-column>
+        width='134'></e-column>
       <e-column field='id' [visible]='false' headerText='ID' [isPrimaryKey]='true'></e-column>
-      <e-column field='documento' headerText='Documento' editType="dropdownedit" width='150'></e-column>
-      <e-column field='rev' headerText='Rev' editType="dropdownedit" width='90'></e-column>
+      <e-column field='documento' [template]='documentoTemplate' headerText='Documento' editType="dropdownedit"
+        width='150'></e-column>
+      <e-column field='rev' headerText='Rev' editType="dropdownedit" width='92'></e-column>
       <e-column field='documentoVinculado' [headerTemplate]='headerTemplateDocumentos' editType="dropdownedit"
-        width='126'></e-column>
+        width='136'></e-column>
       <e-column field='agentesVinculados' [headerTemplate]='headerTemplateAgentes' editType="dropdownedit"
-        width='125'></e-column>
+        width='135'></e-column>
       <e-column field='responsavel' headerText='Responsável' editType="dropdownedit" width='150'></e-column>
-      <e-column field='concessao' headerText='Concessão' editType="dropdownedit" width='125'></e-column>
-      <e-column field='gm' headerText='GM' editType="dropdownedit" width='90'></e-column>
+      <e-column field='concessao' headerText='Concessão' editType="dropdownedit" width='135'></e-column>
+      <e-column field='gm' headerText='GM' editType="dropdownedit" width='92'></e-column>
       <e-column field='subestacao' headerText='Subestação' editType="dropdownedit" width='150'></e-column>
-      <e-column field='inicio' headerText='Início' editType="datepickeredit" [edit]='editParams' format='dd/MM/yyyy' width='120'></e-column>
-      <e-column field='termino' headerText='Termino' editType="datepickeredit" [edit]='editParams' format='dd/MM/yyyy' width='120'></e-column>
+      <e-column field='inicio' headerText='Início' type='date' editType="datepickeredit" [edit]='editParams'
+        format='dd/MM/yyyy' width='120'></e-column>
+      <e-column field='termino' headerText='Termino' type='date' editType="datepickeredit" [edit]='editParams'
+        format='dd/MM/yyyy' width='120'></e-column>
       <e-column field='resumo' headerText='Resumo' width='120'></e-column>
       <e-column field='comentarios' headerText='Comentários' [template]='comentarioTemplate' [allowEditing]='false'
-        width='150'></e-column>
-    </e-columns>
+        width='150'></e-column></e-columns>
   </ejs-grid>
 </div>
+
 
 <ng-template #statusTemplate let-data>
   <div class="status">
@@ -86,7 +92,7 @@
   <i class="search-icon fa fa-search"></i>
 </ng-template>
 
-<ng-template #dropdownStatusTemplate>
+<ng-template #selectStatusTemplate>
   <div class="select-wrapper">
     <select class="form-control" (change)="filterByStatus($event)">
       <option value="">{{itemStatus.placeholder}}</option>
@@ -95,7 +101,7 @@
   </div>
 </ng-template>
 
-<ng-template #dropdownPeriodoTemplate>
+<ng-template #selectPeriodoTemplate>
   <div class="select-wrapper">
     <select class="form-control" (change)="filterByPeriodo($event)">
       <option value="">{{itemPeriodo.placeholder}}</option>
@@ -104,7 +110,7 @@
   </div>
 </ng-template>
 
-<ng-template #dropdownConcessaoTemplate>
+<ng-template #selectConcessaoTemplate>
   <div class="select-wrapper">
     <select class="form-control" (change)="filterByConcessao($event)">
       <option value="">{{itemConcessao.placeholder}}</option>
@@ -118,4 +124,8 @@
 
 <ng-template #headerTemplateAgentes>
   <div class="quebra-linha">Agentes<br>Vinculados</div>
+</ng-template>
+
+<ng-template #documentoTemplate let-data>
+  <u>{{data.documento}}</u>
 </ng-template>

@@ -1,13 +1,30 @@
 import { Injectable } from '@angular/core';
-import { L10n, setCulture } from '@syncfusion/ej2-base';
 
+import { L10n, loadCldr, setCulture } from '@syncfusion/ej2-base';
+
+import ptNumbers from 'cldr-data/main/pt/numbers.json';
+import ptGregorian from 'cldr-data/main/pt/ca-gregorian.json';
+import ptTimezoneData from 'cldr-data/main/pt/timeZoneNames.json';
+import ptCurrenciesData from 'cldr-data/main/pt/currencies.json';
+import ptDateFields from 'cldr-data/main/pt/dateFields.json';
+import supplementalData from 'cldr-data/supplemental/numberingSystems.json';
 @Injectable({
   providedIn: 'root'
 })
 
 export class TranslationService {
 
-  constructor() { }
+  constructor() {
+    loadCldr(
+      supplementalData,
+      ptNumbers,
+      ptGregorian,
+      ptCurrenciesData,
+      ptDateFields,
+      ptTimezoneData
+    );
+    this.loadLocalization();
+  }
 
   loadLocalization(): void {
     setCulture('pt-BR');
@@ -25,17 +42,28 @@ export class TranslationService {
           'Items': 'itens',
           'FilterButton': 'Filtrar',
           'ClearButton': 'Limpar',
-          'StartsWith': 'Começa com',
-          'EndsWith': 'Termina com',
-          'Contains': 'Contém',
-          'Equal': 'Igual',
-          'NotEqual': 'Não igual',
-          'LessThan': 'Menor que',
-          'LessThanOrEqual': 'Menor ou igual a',
-          'GreaterThan': 'Maior que',
-          'GreaterThanOrEqual': 'Maior ou igual a',
-          'ChooseDate': 'Escolha uma data',
-          'EnterValue': 'Inserir valor',
+          "Equal": "Igual",
+          "NotEqual": "Não igual",
+          "LessThan": "Menor que",
+          "GreaterThan": "Maior que",
+          "LessThanOrEqual": "Menor ou igual a",
+          "GreaterThanOrEqual": "Maior ou igual a",
+          "StartsWith": "Começa com",
+          "EndsWith": "Termina com",
+          "Contains": "Contém",
+          "DoesNotStartWith": "Não começa com",
+          "DoesNotEndWith": "Não termina com",
+          "DoesNotContain": "Não contém",
+          "IsNotNull": "Não é nulo",
+          "IsNull": "É nulo",
+          "ClearFilter": "Limpar filtro",
+          "FilterMenu": "Menu de filtro",
+          "ChooseDate": "Escolha uma data",
+          "EnterValue": "Inserir valor",
+          "MatchCase": "Diferenciar maiúsculas de minúsculas",
+          "ApplyFilter": "Aplicar filtro",
+          'EditOperationAlert': 'Nenhum registro selecionado para a operação de edição',
+          'DeleteOperationAlert': 'Nenhum registro selecionado para a operação de exclusão',
           'Copy': 'Copiar',
           'Group': 'Agrupar por esta coluna',
           'Ungroup': 'Desagrupar por esta coluna',
@@ -48,8 +76,6 @@ export class TranslationService {
           'PreviousPage': 'Página anterior',
           'SortAscending': 'Ordenar Ascendente',
           'SortDescending': 'Ordenar Descendente',
-          'EditOperationAlert': 'Nenhum registro selecionado para a operação de edição',
-          'DeleteOperationAlert': 'Nenhum registro selecionado para a operação de exclusão',
           'SaveButton': 'Salvar',
           'OKButton': 'OK',
           'CancelButton': 'Cancelar',
@@ -63,7 +89,11 @@ export class TranslationService {
           'Matchs': 'Nenhuma correspondência encontrada',
         },
         'datepicker': {
-          'today': 'Hoje'
+          'today': 'Hoje',
+        },
+        'months': {
+          'names': ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+          'namesAbbr': ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
         },
         'pager': {
           'currentPageInfo': '{0} de {1} páginas',
@@ -74,7 +104,7 @@ export class TranslationService {
           'previousPageTooltip': 'Ir para a página anterior',
           'nextPagerTooltip': 'Ir para o próximo pager',
           'previousPagerTooltip': 'Ir para o pager anterior',
-        }
+        },
       }
     });
   }
