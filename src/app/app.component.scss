@@ -26,6 +26,11 @@
   color: gray;
 }
 
+.e-rowcell:nth-child(3){
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .status,
 .comentarios {
   display: flex;
