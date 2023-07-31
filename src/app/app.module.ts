@@ -3,23 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GridModule, PagerModule } from '@syncfusion/ej2-angular-grids';
-import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
-import { DataGridComponent } from './core/components/data-grid/data-grid.component';
+import { PdfViewerModule, NavigationService, PrintService, ToolbarService  } from '@syncfusion/ej2-angular-pdfviewer';
+import {ToolbarModule} from "@syncfusion/ej2-angular-navigations";
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DataGridComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    GridModule, PagerModule,
-    DropDownListModule
+    PdfViewerModule,
+    ToolbarModule
   ],
-  providers: [],
+  providers: [ToolbarService, NavigationService, PrintService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

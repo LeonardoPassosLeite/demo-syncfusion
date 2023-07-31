@@ -1,0 +1,149 @@
+#topToolbar {
+  top: 0px;
+  z-index: 1001;
+}
+
+#pdfViewer{
+  height:640px;
+  display: block;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    background: #fff;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #ECECEC;
+    border-radius: 25px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #7082A4;
+  }
+}
+
+.e-tbar-section .e-sample-resize-container {
+  height: 46px;
+}
+
+.e-bookmark-popup {
+  height: 200px;
+  max-width: 250px;
+}
+
+.e-text-search-popup {
+  height: 104px;
+  max-width: 348px;
+}
+
+.e-custom-search-input {
+  width: 234px;
+}
+
+.e-text-search-popup .e-footer-content, .e-bookmark-popup .e-footer-content {
+  padding: 0;
+  height: 0;
+}
+
+.search-button, .search-button:disabled, .search-button:focus, .search-button:hover  {
+  background: transparent;
+  box-shadow: none;
+}
+
+#popup .e-dlg-content {
+  padding-left: 0;
+  padding-bottom: 0;
+}
+
+.e-pv-bookmarks {
+  min-width: 234px;
+}
+
+.e-pv-current-page-number {
+  width: 46px;
+  height: 28px;
+  text-align: center;
+  color: #BFCDD5;
+  font-weight: bold;
+}
+
+.e-pv-total-page-number{
+  color: #BFCDD5;
+  font-weight: bold;
+}
+
+.e-pv-total-number{
+  margin-left: 3px;
+}
+
+.material .e-pv-current-page-number {
+  border-width: 1px;
+}
+
+.e-icons {
+  font-family: "e-icons";
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-transform: none;
+}
+
+.e-pv-previous-page-navigation-icon, .e-pv-next-page-navigation-icon{
+  rotate: -90deg;
+}
+
+.e-btn-icon.e-pv-print-document-icon.e-icons{
+  padding-top: 3px !important;
+}
+
+.e-pv-icon::before {
+  font-family: 'e-icons';
+}
+
+.e-pv-icon-search::before {
+  font-family: 'e-icons';
+  font-size: 12px;
+}
+
+.e-pv-download-document-icon::before {
+  content: '\e93c';
+  font-family: 'primeicons';
+  color: #7082A4;
+}
+
+.e-pv-print-document-icon::before {
+  content: '\e917';
+  color: #7082A4;
+}
+
+.e-pv-previous-page-navigation-icon::before {
+  content: '\e910';
+  color: #7082A4;
+}
+
+.e-pv-zoom-out-sample::before {
+  content: '\e912';
+}
+
+.e-pv-zoom-out-sample {
+  transform: rotate(90deg);
+  padding-right: 2px;
+}
+
+.e-pv-zoom-in-icon::before {
+  content: '\e91d';
+}
+
+.e-pv-next-page-navigation-icon::before {
+  content: '\e911';
+  color: #7082A4;
+}
+
+.e-pv-fit-page-icon::before {
+  content: '\e91b';
+}
+
+.e-pv-open-document-icon::before {
+  content: '\e91c';
+}

@@ -1,28 +1,59 @@
-<div class="control-section">
-    <ejs-grid [dataSource]='data' [query]='query' (dataBound)="dataBound()" (queryCellInfo)="customization($event)" #overviewgrid id='overviewgrid' rowHeight='38' [allowSelection]='true' [allowSorting]='true' [enableHover]='false' [enableHeaderFocus]='true' [selectionSettings]='selectionSettings' [filterSettings]='filterSettings' [allowFiltering]='true'>
-        <e-columns>
-          <e-column field='status' headerText='Status' width='120'></e-column>
-          <e-column field='id' [visible]='false' headerText='ID' [isPrimaryKey]='true'></e-column>
-          <e-column field='documento' headerText='Documento' clipMode='EllipsisWithTooltip' width='150'></e-column>
-          <e-column field='rev' headerText='Rev' clipMode='EllipsisWithTooltip' width='90'></e-column>
-          <e-column field='documentoVinculado' [headerTemplate]='headerTemplateDocumentos' clipMode='EllipsisWithTooltip' width='126'></e-column>
-          <e-column field='agentesVinculados' [headerTemplate]='headerTemplateAgentes' clipMode='EllipsisWithTooltip' width='125'></e-column>
-          <e-column field='responsavel' headerText='Responsável' clipMode='EllipsisWithTooltip' width='150'></e-column>
-          <e-column field='concessao' headerText='Concessão' clipMode='EllipsisWithTooltip' width='150'></e-column>
-          <e-column field='gm' headerText='GM' clipMode='EllipsisWithTooltip' width='90'></e-column>
-          <e-column field='subestacao' headerText='Subestação' clipMode='EllipsisWithTooltip' width='150'></e-column>
-          <e-column field='inicio' headerText='Início' clipMode='EllipsisWithTooltip' width='120'></e-column>
-          <e-column field='termino' headerText='Termino' clipMode='EllipsisWithTooltip' width='120'></e-column>
-          <e-column field='resumo' headerText='Resumo' clipMode='EllipsisWithTooltip' width='120'></e-column>
-          <e-column field='comentarios' headerText='Comentários' clipMode='EllipsisWithTooltip' width='150'></e-column>
-        </e-columns>
-    </ejs-grid>
-    
-    <ng-template #headerTemplateDocumentos>
-        <div class="quebra-linha">Documento<br>Vinculado</div>
-      </ng-template>     
-
-    <ng-template #headerTemplateAgentes>
-        <div class="quebra-linha">Agentes<br>Vinculados</div>
-      </ng-template>      
-</div>
+<ejs-toolbar id='topToolbar' #customToolbar>
+  <e-items>
+    <e-item prefixIcon='e-pv-previous-page-navigation-icon' id='previousPage' tooltipText='Página Anterior' (click)='previousClicked($event)' align='Left'></e-item>
+    <e-item align='Left'>
+      <ng-template #template>
+        <div>
+          <span class='e-pv-current-page-number' id='currentPage' (keypress)='onCurrentPageBoxKeypress($event)'>
+            0
+          </span>
+        </div>
+        <div class="e-pv-total-number">
+          <span class='e-pv-total-page-number' id='totalPage'>
+            / 0
+          </span>
+        </div>
+      </ng-template>
+    </e-item>
+    <e-item prefixIcon='e-pv-next-page-navigation-icon' id='nextPage' tooltipText='Próxima Página' (click)='nextClicked($event)' align='Left'></e-item>
+    <e-item align='Left'>
+      <ng-template #template>
+        <div class="zoomTemplate">
+          <select class="selectZoom" id="selectZoom" #zoomSelect>
+            <option value='100' selected>100%</option>
+            <option value='150'>150%</option>
+            <option value='200'>200%</option>
+            <option value='250'>250%</option>
+            <option value='300'>300%</option>
+          </select>
+          <i class="pi pi-chevron-down"></i>
+          <i class="pi pi-search-plus"></i>
+        </div>
+      </ng-template>
+    </e-item>
+    <e-item align='Left'>
+      <ng-template #template>
+        <div class="searchTemplate">
+          <input type="text" placeholder="Buscar neste documento">
+          <i class="pi pi-search"></i>
+        </div>
+      </ng-template>
+    </e-item>
+    <e-item align='Right'>
+      <ng-template #template>
+        <span class="linha"></span>
+      </ng-template>
+    </e-item>
+    <e-item prefixIcon='e-pv-print-document-icon' tooltipText='Imprimir' (click)='printClicked($event)' align='Right'></e-item>
+    <e-item prefixIcon='e-pv-download-document-icon' tooltipText='Baixar' (click)='downloadClicked($event)' align='Right'></e-item>
+  </e-items>
+</ejs-toolbar>
+<ejs-pdfviewer #pdfviewer id='pdfViewer'
+               [serviceUrl]='service'
+               [documentPath]='document'
+               [enableToolbar]=false
+               [enableNavigationToolbar]=false
+               (pageChange)='pageChanged($event)'
+               (documentLoad)='documentLoaded($event)'
+               >
+</ejs-pdfviewer>
