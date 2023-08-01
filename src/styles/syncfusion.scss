@@ -3,22 +3,24 @@
   z-index: 1001;
 }
 
-#pdfViewer{
-  height:640px;
-  display: block;
-  overflow-y: scroll;
+.e-pv-viewer-container{
 
   &::-webkit-scrollbar {
     background: #fff;
+    border-radius: 25px;
+    width: 10px;
   }
 
   &::-webkit-scrollbar-track {
     background: #ECECEC;
     border-radius: 25px;
+    width: 10px;
   }
 
   &::-webkit-scrollbar-thumb {
+    height: 200px;
     background: #7082A4;
+    border-radius: 25px;
   }
 }
 

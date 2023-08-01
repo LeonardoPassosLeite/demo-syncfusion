@@ -19,14 +19,13 @@
     <e-item align='Left'>
       <ng-template #template>
         <div class="zoomTemplate">
-          <select class="selectZoom" id="selectZoom" #zoomSelect>
-            <option value='100' selected>100%</option>
+          <select class="selectZoom" id="selectZoom" (change)="zoomChanged($event)" #selectElement>
+            <option value='100'>100%</option>
             <option value='150'>150%</option>
             <option value='200'>200%</option>
             <option value='250'>250%</option>
             <option value='300'>300%</option>
           </select>
-          <i class="pi pi-chevron-down"></i>
           <i class="pi pi-search-plus"></i>
         </div>
       </ng-template>
@@ -34,8 +33,9 @@
     <e-item align='Left'>
       <ng-template #template>
         <div class="searchTemplate">
-          <input type="text" placeholder="Buscar neste documento">
-          <i class="pi pi-search"></i>
+          <input type="text" placeholder="Buscar neste documento" [(ngModel)]="searchText">
+          <i class="pi pi-search" (click)="search()"></i>
+          <i class="pi pi-times" *ngIf="searchText" (click)="cancelSearch()"></i>
         </div>
       </ng-template>
     </e-item>

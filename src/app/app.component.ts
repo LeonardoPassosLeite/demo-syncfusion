@@ -1,5 +1,10 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {PageChangeEventArgs, PdfViewerComponent} from "@syncfusion/ej2-angular-pdfviewer";
+import {
+  MagnificationService,
+  PageChangeEventArgs,
+  PdfViewerComponent,
+  TextSearchService
+} from "@syncfusion/ej2-angular-pdfviewer";
 import {ClickEventArgs, ToolbarComponent} from '@syncfusion/ej2-angular-navigations';
 import {LoadEventArgs} from "@syncfusion/ej2-angular-grids";
 
@@ -7,6 +12,7 @@ import {LoadEventArgs} from "@syncfusion/ej2-angular-grids";
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  providers: [MagnificationService, TextSearchService]
 })
 export class AppComponent implements OnInit {
 
@@ -16,15 +22,13 @@ export class AppComponent implements OnInit {
   public customToolbar!: ToolbarComponent;
   @ViewChild('zoomToolbar')
   public zoomToolbar!: ToolbarComponent;
+  public searchText: string = '';
   public service: string =
     'https://ej2services.syncfusion.com/production/web-services/api/pdfviewer';
   public document: string = 'Hive_Succinctly.pdf';
 
   constructor() { }
   ngOnInit(): void {
-    document
-      .getElementById('fileUpload')!
-      .addEventListener('change', this.readFile.bind(this));
   }
 
   public previousClicked(e: ClickEventArgs): void {
@@ -132,6 +136,26 @@ export class AppComponent implements OnInit {
           proxy.pdfviewerControl.load(uploadedFileUrl, null);
         };
       }
+    }
+  }
+
+  public zoomChanged(event: any): void {
+    if (this.pdfviewerControl && this.pdfviewerControl.magnification) {
+      let zoomValue: number = parseInt(event.target.value);
+      this.pdfviewerControl.magnification.zoomTo(zoomValue);
+    }
+  }
+
+  public search(): void {
+    if (this.pdfviewerControl && this.pdfviewerControl.textSearchModule) {
+      this.pdfviewerControl.textSearchModule.searchText(this.searchText, false);
+    }
+  }
+
+  public cancelSearch(): void {
+    this.searchText = '';
+    if (this.pdfviewerControl && this.pdfviewerControl.textSearchModule) {
+      this.pdfviewerControl.textSearchModule.cancelTextSearch();
     }
   }
 }

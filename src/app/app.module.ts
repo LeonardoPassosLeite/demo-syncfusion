@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PdfViewerModule, NavigationService, PrintService, ToolbarService  } from '@syncfusion/ej2-angular-pdfviewer';
 import {ToolbarModule} from "@syncfusion/ej2-angular-navigations";
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -12,12 +13,13 @@ import {ToolbarModule} from "@syncfusion/ej2-angular-navigations";
   declarations: [
     AppComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    PdfViewerModule,
-    ToolbarModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        PdfViewerModule,
+        ToolbarModule,
+        FormsModule
+    ],
   providers: [ToolbarService, NavigationService, PrintService],
   bootstrap: [AppComponent]
 })
